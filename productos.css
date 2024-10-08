@@ -1,0 +1,39 @@
+.tarjetas-pequenas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 80px;
+  }
+  
+  .tarjeta-pequena {
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tarjeta-pequena img {
+    max-width: 100%;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .tarjeta-pequena p {
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: center;
+  }
+  
+  .tarjeta-pequena:hover img {
+    transform: scale(1.1);
+  }
+
+  .hamburguesas-presentation{
+    margin-left: 15px;
+  }

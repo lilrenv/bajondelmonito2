@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BajonMonito</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="delivery.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places" defer></script>
+</head>
+
+<body>
+
+  <div class="corner-content">
+    <div class="logo">
+      <img src="bajondelmonito.png" alt="Logo de la Página">
+    </div>
+    <div class="text">
+      <p>Bajon del Monito</p>
+    </div>
+  </div>
+
+
+  <button class="navbar-toggler" id="navbar-toggler" onclick="toggleIcon()">
+    &#9776;
+  </button>
+
+  <br>
+  <nav class="navbar-menu" id="navbar-menu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <br>
+      <li><a href="menu.html">Menu</a></li>
+      <br>
+      <li><a href="delivery.html">Delivery</a></li>
+      <br>
+        
+      <br>
+    </ul>
+  </nav>
+
+  <div class="separador-navbar">
+    <div class="navbar-shadow"></div>
+  </div>
+
+  <div class="container-delivery">
+    <h1>Delivery de Pedido</h1>
+    <form id="order-form">
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Dirección:</label>
+        <input type="text" id="address" name="address" required>
+      </div>
+      <div class="form-group">
+        <label>Selecciona tus opciones de comida:</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="menu" value="Hamburguesas" onclick="toggleOptions('burger-options')">
+            Hamburguesas</label>
+          <div id="burger-options" class="sub-options hidden">
+            <label><input type="checkbox" name="burger-type" value="Big Mono"> Big Mono</label>
+            <label><input type="checkbox" name="burger-type" value="Monito Burguer"> Monito Burguer</label>
+            <label><input type="checkbox" name="burger-type" value="MonoNifica"> MonoNifica</label>
+            <label><input type="checkbox" name="burger-type" value="Mono Burguer"> Mono Burguer</label>
+            <label><input type="checkbox" name="burger-type" value="AmericaMonkey Burguer"> AmericaMonkey
+              Burguer</label>
+            <label><input type="checkbox" name="burger-type" value="Hamburguesa TripleMono"> Hamburguesa
+              TripleMono</label>
+            <label><input type="checkbox" name="burger-type" value="Gorila Burguer"> Gorila Burguer</label>
+            <label><input type="checkbox" name="burger-type" value="Babuino Burguer"> Babuino Burguer</label>
+            <label><input type="checkbox" name="burger-type" value="Junglita Burguer"> Junglita Burguer</label>
+            <label><input type="checkbox" name="burger-type" value="Plateada Burguer"> Plateada Burguer</label>
+          </div>
+
+          <label><input type="checkbox" name="menu" value="Hamburguesas de Pollo"
+              onclick="toggleOptions('chicken-burger-options')"> Hamburguesas de Pollo</label>
+          <div id="chicken-burger-options" class="sub-options hidden">
+            <label><input type="checkbox" name="chicken-burger-type" value="MonitoPollo Italiano"> MonitoPollo Italiano</label>
+            <label><input type="checkbox" name="chicken-burger-type" value="MonoPollo"> MonoPollo</label>
+          </div>
+
+          <label><input type="checkbox" name="menu" value="Para Acompañar" onclick="toggleOptions('side-options')"> Para
+            Acompañar</label>
+          <div id="side-options" class="sub-options hidden">
+            <label><input type="checkbox" name="side" value="Papas Fritas"> Papas Grandes</label>
+            <label><input type="checkbox" name="side" value="Papas Medianas"> Papas Medianas</label>
+            <label><input type="checkbox" name="side" value="Empanaditas"> Empanaditas</label>
+            <label><input type="checkbox" name="side" value="MonitoNuggets"> MonitoNuggets</label>
+            <label><input type="checkbox" name="side" value="Papas Duquesas"> Papas Duquesas</label>
+            <label><input type="checkbox" name="side" value="AlitasKrispy"> AlitasKrispy</label>
+            <label><input type="checkbox" name="side" value="ChikenKids"> ChikenKids</label>
+          </div>
+
+          <label><input type="checkbox" name="menu" value="Bebidas" onclick="toggleOptions('beverage-options')">
+            Bebidas</label>
+          <div id="beverage-options" class="sub-options hidden">
+            <label><input type="checkbox" name="beverage" value="Coca-Cola 12oz"> Coca-Cola 12oz</label>
+            <label><input type="checkbox" name="beverage" value="Coca-Cola 16oz"> Coca-Cola 16oz</label>
+            <label><input type="checkbox" name="beverage" value="Coca-Cola 21oz"> Coca-Cola 21oz</label>
+            <label><input type="checkbox" name="beverage" value="Coca-Cola Light 12oz"> Coca-Cola Light 12oz</label>
+            <label><input type="checkbox" name="beverage" value="Coca-Cola Light 16oz"> Coca-Cola Light 16oz</label>
+            <label><input type="checkbox" name="beverage" value="Coca-Cola Light 21oz"> Coca-Cola Light 21oz</label>
+            <label><input type="checkbox" name="beverage" value="Coca-Cola Zero 12oz"> Coca-Cola Zero 12oz</label>
+            <label><input type="checkbox" name="beverage" value="Coca-Cola Zero 16oz"> Coca-Cola Zero 16oz</label>
+            <label><input type="checkbox" name="beverage" value="Coca-Cola Zero 21oz"> Coca-Cola Zero 21oz</label>
+            <label><input type="checkbox" name="beverage" value="Fanta Zero 12oz"> Fanta Zero 12oz</label>
+            <label><input type="checkbox" name="beverage" value="Fanta Zero 16oz"> Fanta Zero 16oz</label>
+            <label><input type="checkbox" name="beverage" value="Fanta Zero 21oz"> Fanta Zero 21oz</label>
+            <label><input type="checkbox" name="beverage" value="Sprite Zero 12oz"> Sprite Zero 12oz</label>
+            <label><input type="checkbox" name="beverage" value="Sprite Zero 16oz"> Sprite Zero 16oz</label>
+            <label><input type="checkbox" name="beverage" value="Sprite Zero 21oz"> Sprite Zero 21oz</label>
+            <label><input type="checkbox" name="beverage" value="Aguas sin gas"> Aguas sin gas</label>
+            <label><input type="checkbox" name="beverage" value="Jugo de piña"> Jugo de piña</label>
+
+          </div>
+
+          <label><input type="checkbox" name="menu" value="Helados" onclick="toggleOptions('ice-cream-options')">
+            Helados</label>
+          <div id="ice-cream-options" class="sub-options hidden">
+            <label><input type="checkbox" name="ice-cream" value="Cono mixto"> Cono mixto</label>
+            <label><input type="checkbox" name="ice-cream" value="Cono vainilla"> Cono vainilla</label>
+            <label><input type="checkbox" name="ice-cream" value="Cono chocolate"> Cono chocolate</label>
+          </div>
+
+          <label><input type="checkbox" name="menu" value="Desayunos" onclick="toggleOptions('breakfast-options')">
+            Desayunos</label>
+          <div id="breakfast-options" class="sub-options hidden">
+            <label><input type="checkbox" name="breakfast" value="Cafe"> Cafe</label>
+            <label><input type="checkbox" name="breakfast" value="Latte"> Latte</label>
+            <label><input type="checkbox" name="breakfast" value="Capuccino"> Capuccino</label>
+            <label><input type="checkbox" name="breakfast" value="Egg Muffin Carne"> Egg Muffin Carne</label>
+            <label><input type="checkbox" name="breakfast" value="Egg Muffin Tocino"> Egg Muffin Tocino</label>
+          </div>
+        </div>
+      </div>
+      <button type="button" onclick="showOrder()">Mostrar Pedido</button>
+      <button type="button" onclick="confirmOrder()">Confirmar Pedido</button>
+      <h4>Al momento de recibir el pedido cancela lo solicitado</h4>
+    </form>
+    <div id="order-summary" class="hidden">
+      <h2>Resumen del Pedido</h2>
+      <p id="summary-name"></p>
+      <p id="summary-address"></p>
+      <p id="summary-menu"></p>
+    </div>
+    <div id="confirmation-message" class="hidden">
+      <h2>Pedido Confirmado</h2>
+      <p>Gracias por tu pedido. Te lo confirmaremos pronto.</p>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="separator"></div>
+      <div class="footer-content">
+        <div class="logo">
+          <img src="bajondelmonito.png" alt="Logo de la página">
+        </div>
+        <div class="info">
+          <h4>Bajon del Monito - Pide online el bajon que quieras</h4>
+          <p>Antójate de nuestro delicioso pollo, pop corn, strips, alitas picantes,
+            hamburguesas originales, y otros productos deliciosos. No esperes más, conoce
+            aquí nuestro menú y atrévete a probar la Receta Secreta del Monito
+            con increíbles promociones.</p>
+        </div>
+        <div class="contact">
+          <h4>Contacto</h4>
+          <p>Sargento candelaria #1545</p>
+          <p>servicioalcliente@bdml.cl</p>
+          <p>San Ramon - Santiago \ Region Metropolitana</p>
+          <p>600 473 0000</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="delivery.js"></script>
+  <script src="button-hamburg.js"></script>
+</body>
+
+</html>
